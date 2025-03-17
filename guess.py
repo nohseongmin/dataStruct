@@ -2,6 +2,7 @@ import random
 
 answer = random.randrange(1, 1000)
 win = False
+
 for guesses in range(10):
     guess = int(input(f"{10-guesses}번 남음, 수 입력 : "))
     if answer == guess:
