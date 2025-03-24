@@ -1,18 +1,12 @@
-def dup(cities):
-    result_city = []
-    s = set()
-    for city in cities:
-        l1 = len(s)
-        s.add(city)
-        l2 = len(s)
-        if l1 == l2:
-            result_city.append(city)
-    return result_city
+def inters(l1, l2):
+    l3 = []
+    for v in l1:
+        if v in l2:
+            l3.append(v)
+    return l3
 
-cities = ['incheon', 'seoul', 'incheon', 'gwangju']
-# cities = set(cities)    #set으로 변경
-# cities.add('incheon')   #set 전용 추가함수
-cities.append('incheon')
-cities.append('seoul')
-print(cities)
-print(set(dup(cities))) #중복값이 발생하므로 set을 한번더해서 제거
+
+l1 = [45, 5, 22, 31, 7, 19]
+l2 = [22, 1, 4, 2, 5, 23, 30, 13, 41, 19]
+print(inters(l1,l2))
+
