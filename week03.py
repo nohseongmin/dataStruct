@@ -1,5 +1,5 @@
-groups = ['NEWJEANS', "promise9", "aespa"]
-rating = [1,2,3]
+cities = ['incheon', 'seoul', 'incheon', 'gwangju']
+cities = set(cities)    #set으로 변경
+cities.add('incheon')   #set 전용 추가함수
+print(cities)
 
-group_rating = list(zip(groups, rating))
-print(group_rating)
