@@ -1,9 +1,10 @@
 def inters(l1, l2):
-    l3 = []
-    for v in l1:
-        if v in l2:
-            l3.append(v)
-    return l3
+    s1 = set(l1)
+    s2 = set(l2)
+    #return list(s1.intersection(s2)) #교집합
+    #return list(s1.union(s2))        #합집합
+    #return list(s1-s2)               #차집합
+    return list(s1.difference(s2))    #차집합
 
 
 l1 = [45, 5, 22, 31, 7, 19]
