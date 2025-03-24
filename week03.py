@@ -3,7 +3,7 @@ def inters(l1, l2):
     s2 = set(l2)
     #return list(s1.intersection(s2)) #교집합
     #return list(s1.union(s2))        #합집합
-    #return list(s1-s2)               #차집합
+    #return list(s1 & s2)             #차집합 다른 집합도 + / 등 사용가능
     return list(s1.difference(s2))    #차집합
 
 
