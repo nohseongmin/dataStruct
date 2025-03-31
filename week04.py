@@ -19,14 +19,17 @@ class LinkedList:
         current.link = Node(data)
 
     def remove(self, target):
+        curr = self.head
         if self.head.data == target:
             self.head = self.head.link
+            curr.link = None
             return
-        curr = self.head
         prev = None
         while curr:
             if target == curr.data:
                 prev.link = curr.link
+                #지울 노드와 그 다음 노드가 연결됨. 그걸 끊어 GC가 알아서 지우게 함
+                curr.link = None
             prev = curr
             curr = curr.link
 
@@ -49,10 +52,10 @@ class LinkedList:
 
 ll = LinkedList()
 ll.append(99)
-ll.append(12)
+ll.append(10)
 ll.append(15)
 print(ll)
 print(ll.search(99))
 print(ll.search(10))
-ll.remove(12)
+ll.remove(1)
 print(ll)
