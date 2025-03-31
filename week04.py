@@ -1,5 +1,3 @@
-import random
-
 class Node:
     def __init__(self, data, link=None):
         self.data = data
@@ -20,6 +18,18 @@ class LinkedList:
             current = current.link
         current.link = Node(data)
 
+    def remove(self, target):
+        if self.head.data == target:
+            self.head = self.head.link
+            return
+        curr = self.head
+        prev = None
+        while curr:
+            if target == curr.data:
+                prev.link = curr.link
+            prev = curr
+            curr = curr.link
+
     def search(self, target):
         current = self.head
         while current.link:
@@ -33,26 +43,16 @@ class LinkedList:
         current = self.head
         result = ""
         while current is not None:
-            #result = result + str(current.data) + "->"
             result = result + f"{current.data} -> "
             current = current.link
         return result + "END"
 
-
 ll = LinkedList()
-for _ in range(20):
-    ll.append(random.randint(1,30))
+ll.append(99)
+ll.append(12)
+ll.append(15)
 print(ll)
+print(ll.search(99))
 print(ll.search(10))
-
-# #리스트생성 -> init메소드 동작 -> 링크드리스트 객체 생성, head 속성(none값) 들어감
-# ll = LinkedList()
-# #data값에 8이 전달, head가 none이므로 if문 동작, self.head에 새로 생긴 노드(8)의 주소값 넣음, 이후 리턴
-# ll.append(8)
-# #if문 동작 X, current (지역변수)에 self.head의 주소값 대입, current.link는 none이므로 while문 생략,
-# #current.link에 Node(10) 넣음. 10의 주소값
-# ll.append(10)
-# ll.append(9)
-# print(ll)
-# print(ll.search(10))
-# print(ll.search(11))
+ll.remove(12)
+print(ll)
