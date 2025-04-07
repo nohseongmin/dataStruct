@@ -1,19 +1,18 @@
-#print(1+3))
-def is_valid_parentheses(expression : str) -> bool: #type hint 사용(강제아님)
+def is_valid(expression : str) -> bool:
+    brachets = {')': '(', ']': '[', '}': "{"}
     stack = list()
     for letter in expression:
-        #기본 아이디어:(에서 push )에서 pop.
-        if letter == "(":
+        if letter in brachets.values():
             stack.append(letter)
-        if letter == ")":
-            if len(stack) == 0:
+        if letter in brachets.keys():
+            if not stack or stack.pop() != brachets[letter]:
                 return False
-            else:
-                stack.pop()
-    return len(stack) == 0
+    return not stack
 
-print(is_valid_parentheses(")(1+2))")) #예상) f
-print(is_valid_parentheses("(1+2))")) # f
-print(is_valid_parentheses("(1+2)")) #t
-print(is_valid_parentheses("((3*2)/+2)")) #t
+print(is_valid("[1+2]+(1+2)"))
+print(is_valid("[1+2]+1+2)"))
+print(is_valid("[1+2]+1+2"))
+print(is_valid("{([1+2])}"))
+print(is_valid("({[1+2])}"))
+
 
