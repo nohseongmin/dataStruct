@@ -24,10 +24,19 @@ class Stack:
         popped_node.link = None
         return popped_node.data
 
+    def peek(self):
+        if self.top is None:
+            return "stack is empty!"
+        return self.top.data
+
+#size, is_empty 등 추가
 
 s1 = Stack()
 print(s1.pop()) #빈 스택이라 예외처리됨
 s1.push("data Struct")
 s1.push("dataBase")
-print(s1.pop())
-print(s1.pop())
+#print(s1.pop())
+#print(s1.pop())
+print(s1.peek())
+for i in range(3):
+    print(s1.pop())
