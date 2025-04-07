@@ -19,7 +19,7 @@ class LinkedList:
         current.link = Node(data)
 
     def remove(self, target):
-        curr = self.head
+        curr = self.head # 처음껄 지우면 링크가 지워지지 않음
         if self.head.data == target:
             self.head = self.head.link
             curr.link = None
