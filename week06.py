@@ -23,6 +23,7 @@ class Queue:
         self.size = self.size-1
         temp = self.front
         self.front = self.front.link # 이동
+        temp.link = None # 주소 초기화(링크 끊기)
         if self.front is None:
             self.rear = None
         return temp.data
