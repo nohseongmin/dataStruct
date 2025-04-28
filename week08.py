@@ -61,7 +61,7 @@ if __name__ == "__main__":
     #중위순회 해야 순서대로(큰순서대로) 나옴
     in_order(root)
 
-
+#<과제>search 기능도 함수로 따로 빼기
     find_number = int(input())
     current = root
     while True:
