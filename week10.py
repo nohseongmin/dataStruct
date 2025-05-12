@@ -64,6 +64,22 @@ def insert(root, value):
     #지역변수 root 값을 return 해야 밖에서도 사용가능
     return root
 
+def delete(node, value):
+    if node is None:
+        return None
+    if value < node.data:
+        node.left = delete(node.left, value)
+        return node
+    elif value > node.data:
+        node.right = delete(node.right, value)
+        return node
+    else:
+        if node.right is None:
+            return node.right
+        elif node.left is None:
+            return node.left
+    return node
+
 if __name__ == "__main__":
     numbers = [10, 15, 8, 3, 9, 100, 7, 13]
     root = None
@@ -72,10 +88,24 @@ if __name__ == "__main__":
         root = insert(root, number)
 
     print("bst 구성완료")
+    post_order(root)
+    print()
     in_order(root)
+    print()
+    pre_order(root)
     print()
     find_number = int(input("찾는 수:"))
     if search(find_number):
         print(f"{find_number}를 찾았습니다.")
     else:
         print(f"{find_number}는 존재하지 않습니다.")
+
+    delete_number = int(input("삭제할 수 :"))
+    root = delete(root, delete_number)
+
+    post_order(root)
+    print()
+    in_order(root)
+    print()
+    pre_order(root)
+    print()
