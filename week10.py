@@ -74,10 +74,24 @@ def delete(node, value):
         node.right = delete(node.right, value)
         return node
     else:
+        #leaf 노드 / 자식이 1개인경우 노드 삭제
         if node.right is None:
             return node.right
         elif node.left is None:
             return node.left
+        # min_larger_node = node.right
+        # #curr 의 left가 none 일 때까지 이동
+        # while  min_larger_node.left:
+        #     min_larger_node = min_larger_node.left
+        #     #이동 후 대입
+        # node.data = min_larger_node.data
+        # #이동 후 삭제
+        # node.right = delete(node.right, min_larger_node.data)
+        max_smaller_node = node.left
+        while max_smaller_node.right:
+            max_smaller_node = max_smaller_node.right
+        node.data = max_smaller_node.data
+        node.right = delete(node.left, max_smaller_node.data)
     return node
 
 if __name__ == "__main__":
