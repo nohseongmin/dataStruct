@@ -10,7 +10,7 @@ graph = [
 ]
 
 def dfs(g, i, visited):
-    visited[i] = True
+    visited[i] = Trueno
     print(chr(ord('A')+i), end=' ')
     for j in range(len(graph)):
         if g[i][j] == 1 and not visited[j]:
