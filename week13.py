@@ -76,6 +76,6 @@ for c, s, e in mst_edges:
 	mst_graph.graph[e][s] = c
 
 print('MST 도로 연결도')
-print_graph(g1)
+print_graph(mst_graph)
 
 print(f"최소 비용 :  {mst_cost}")
